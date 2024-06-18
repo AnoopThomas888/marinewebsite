@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marine Units Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f9;
+            background-image: url(conversion.png);
+        }
+        h1 {
+            color: #efeaea;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: white;
+        }
+        input, select {
+            padding: 8px;
+            width: calc(100% - 20px);
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e7f3e7;
+            border-left: 6px solid #4CAF50;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Marine Units Converter</h1>
+
+<h2>Convert Length</h2>
+<label for="lengthInput">Length:</label>
+<input type="number" id="lengthInput" placeholder="Enter value" required>
+<select id="lengthFrom">
+    <option value="meters">Meters</option>
+    <option value="feet">Feet</option>
+    <option value="nauticalMiles">Nautical Miles</option>
+</select>
+<select id="lengthTo">
+    <option value="meters">Meters</option>
+    <option value="feet">Feet</option>
+    <option value="nauticalMiles">Nautical Miles</option>
+</select>
+<button onclick="convertLength()">Convert Length</button>
+
+<h2>Convert Weight</h2>
+<label for="weightInput">Weight:</label>
+<input type="number" id="weightInput" placeholder="Enter value" required>
+<select id="weightFrom">
+    <option value="kilograms">Kilograms</option>
+    <option value="pounds">Pounds</option>
+    <option value="tons">Tons</option>
+</select>
+<select id="weightTo">
+    <option value="kilograms">Kilograms</option>
+    <option value="pounds">Pounds</option>
+    <option value="tons">Tons</option>
+</select>
+<button onclick="convertWeight()">Convert Weight</button>
+
+<h2>Convert Volume</h2>
+<label for="volumeInput">Volume:</label>
+<input type="number" id="volumeInput" placeholder="Enter value" required>
+<select id="volumeFrom">
+    <option value="cubicMeters">Cubic Meters</option>
+    <option value="liters">Liters</option>
+    <option value="gallons">Gallons</option>
+</select>
+<select id="volumeTo">
+    <option value="cubicMeters">Cubic Meters</option>
+    <option value="liters">Liters</option>
+    <option value="gallons">Gallons</option>
+</select>
+<button onclick="convertVolume()">Convert Volume</button>
+
+<div class="result" id="results"></div>
+
+<script>
+function convertLength() {
+    const lengthInput = parseFloat(document.getElementById('lengthInput').value);
+    const lengthFrom = document.getElementById('lengthFrom').value;
+    const lengthTo = document.getElementById('lengthTo').value;
+
+    let lengthInMeters;
+
+    // Convert from input unit to meters
+    if (lengthFrom === 'meters') {
+        lengthInMeters = lengthInput;
+    } else if (lengthFrom === 'feet') {
+        lengthInMeters = lengthInput * 0.3048;
+    } else if (lengthFrom === 'nauticalMiles') {
+        lengthInMeters = lengthInput * 1852;
+    }
+
+    // Convert from meters to output unit
+    let convertedLength;
+    if (lengthTo === 'meters') {
+        convertedLength = lengthInMeters;
+        
+    document.getElementById('results').innerHTML = convertedLength;
+    } else if (lengthTo === 'feet') {
+        convertedLength = lengthInMeters / 0.3048;
+        
+    document.getElementById('results').innerHTML = convertedLength;
+    } else if (lengthTo === 'nauticalMiles') {
+        convertedLength = lengthInMeters / 1852;
+        
+    document.getElementById('results').innerHTML = convertedLength;
+    }
+
+    // document.getElementById('results').innerHTML = convertedLength;
+}
+
+function convertWeight() {
+    const weightInput = parseFloat(document.getElementById('weightInput').value);
+    const weightFrom = document.getElementById('weightFrom').value;
+    const weightTo = document.getElementById('weightTo').value;
+
+    let weightInKilograms;
+
+    // Convert from input unit to kilograms
+    if (weightFrom === 'kilograms') {
+        weightInKilograms = weightInput;
+    } else if (weightFrom === 'pounds') {
+        weightInKilograms = weightInput * 0.453592;
+    } else if (weightFrom === 'tons') {
+        weightInKilograms = weightInput * 1000;
+    }
+
+    // Convert from kilograms to output unit
+    let convertedWeight;
+    if (weightTo === 'kilograms') {
+        convertedWeight = weightInKilograms;
+    } else if (weightTo === 'pounds') {
+        convertedWeight = weightInKilograms / 0.453592;
+    } else if (weightTo === 'tons') {
+        convertedWeight = weightInKilograms / 1000;
+    }
+
+    document.getElementById('results').innerHTML = Converted Weight: ${convertedWeight.toFixed(2)} ${weightTo};
+}
+
+function convertVolume() {
+    const volumeInput = parseFloat(document.getElementById('volumeInput').value);
+    const volumeFrom = document.getElementById('volumeFrom').value;
+    const volumeTo = document.getElementById('volumeTo').value;
+
+    let volumeInCubicMeters;
+
+    // Convert from input unit to cubic meters
+    if (volumeFrom === 'cubicMeters') {
+        volumeInCubicMeters = volumeInput;
+    } else if (volumeFrom === 'liters') {
+        volumeInCubicMeters = volumeInput / 1000;
+    } else if (volumeFrom === 'gallons') {
+        volumeInCubicMeters = volumeInput * 0.00378541;
+    }
+
+    // Convert from cubic meters to output unit
+    let convertedVolume;
+    if (volumeTo === 'cubicMeters') {
+        convertedVolume = volumeInCubicMeters;
+    } else if (volumeTo === 'liters') {
+        convertedVolume = volumeInCubicMeters * 1000;
+    } else if (volumeTo === 'gallons') {
+        convertedVolume = volumeInCubicMeters / 0.00378541;
+    }
+
+    document.getElementById('results').innerHTML = Converted Volume: ${convertedVolume.toFixed(2)} ${volumeTo};
+}
+</script>
+
+</body>
+</html>

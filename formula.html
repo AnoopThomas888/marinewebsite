@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grain Stability Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input {
+            padding: 8px;
+            width: calc(100% - 20px);
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e7f3e7;
+            border-left: 6px solid #4CAF50;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Grain Stability Calculator</h1>
+
+<h2>Inputs</h2>
+
+<label for="displacement">Displacement (kg):</label>
+<input type="number" id="displacement" required>
+
+<label for="grainVolume">Grain Volume (m³):</label>
+<input type="number" id="grainVolume" required>
+
+<label for="KG">KG (Center of Gravity above keel) (m):</label>
+<input type="number" id="KG" required>
+
+<label for="KB">KB (Center of Buoyancy above keel) (m):</label>
+<input type="number" id="KB" required>
+
+<label for="heelAngle">Heel Angle (degrees):</label>
+<input type="number" id="heelAngle" required>
+
+<button onclick="calculateGrainStability()">Calculate Grain Stability</button>
+
+<div class="result" id="results"></div>
+
+<script>
+function calculateGrainStability() {
+    const displacement = parseFloat(document.getElementById('displacement').value);
+    const grainVolume = parseFloat(document.getElementById('grainVolume').value);
+    const KG = parseFloat(document.getElementById('KG').value);
+    const KB = parseFloat(document.getElementById('KB').value);
+    const heelAngleDegrees = parseFloat(document.getElementById('heelAngle').value);
+
+    // Constants for calculation
+    const grainShiftFactor = 0.12; // Example value, varies based on cargo specifics
+    const heelAngleRadians = heelAngleDegrees * (Math.PI / 180);
+
+    // Calculate the heeling moment due to the grain shift
+    const grainHeelingMoment = displacement * grainVolume * grainShiftFactor * Math.sin(heelAngleRadians);
+
+    // Calculate GM (Metacentric Height)
+    const KM = KG + KB; // Example simplification
+    const GM = KM - KG;
+
+    // Calculate Righting Moment
+    const rightingMoment = displacement * GM * Math.sin(heelAngleRadians);
+
+    document.getElementById('results').innerHTML = `
+        <strong>Results:</strong><br>
+        Grain Heeling Moment: ${grainHeelingMoment.toFixed(2)} Nm<br>
+        Metacentric Height (GM): ${GM.toFixed(2)} m<br>
+        Righting Moment: ${rightingMoment.toFixed(2)} Nm
+    `;
+}
+</script>
+
+</body>
+</html>

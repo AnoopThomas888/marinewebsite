@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMDG Segregation Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h2>IMDG Segregation Table</h2>
+
+<table id="segregationTable">
+    <thead>
+        <tr>
+            <th>Class</th>
+            <th>Explosives (Class 1)</th>
+            <th>Gases (Class 2)</th>
+            <th>Flammable Liquids (Class 3)</th>
+            <th>Flammable Solids (Class 4)</th>
+            <th>Oxidizing Substances (Class 5)</th>
+            <th>Toxic Substances (Class 6)</th>
+            <th>Radioactive Material (Class 7)</th>
+            <th>Corrosive Substances (Class 8)</th>
+            <th>Miscellaneous (Class 9)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Data will be populated by JavaScript -->
+    </tbody>
+</table>
+
+<script>
+    // Data for the segregation table
+    const segregationData = [
+        ["Explosives (Class 1)", "X", "X", "X", "X", "X", "X", "X", "X", "X"],
+        ["Gases (Class 2)", "X", "0", "0", "X", "X", "0", "0", "X", "0"],
+        ["Flammable Liquids (Class 3)", "X", "0", "0", "0", "X", "0", "0", "X", "0"],
+        ["Flammable Solids (Class 4)", "X", "X", "0", "0", "X", "0", "0", "X", "0"],
+        ["Oxidizing Substances (Class 5)", "X", "X", "X", "X", "X", "X", "0", "X", "0"],
+        ["Toxic Substances (Class 6)", "X", "0", "0", "0", "X", "0", "0", "X", "0"],
+        ["Radioactive Material (Class 7)", "X", "0", "0", "0", "0", "0", "0", "0", "0"],
+        ["Corrosive Substances (Class 8)", "X", "X", "X", "X", "X", "X", "0", "0", "0"],
+        ["Miscellaneous (Class 9)", "X", "0", "0", "0", "0", "0", "0", "0", "0"]
+    ];
+
+    // Function to populate the table with data
+    function populateTable() {
+        const tableBody = document.querySelector("#segregationTable tbody");
+
+        segregationData.forEach(rowData => {
+            const row = document.createElement("tr");
+            rowData.forEach(cellData => {
+                const cell = document.createElement("td");
+                cell.textContent = cellData;
+                row.appendChild(cell);
+            });
+            tableBody.appendChild(row);
+        });
+    }
+
+    // Call the function to populate the table
+    populateTable();
+</script>
+
+</body>
+</html>

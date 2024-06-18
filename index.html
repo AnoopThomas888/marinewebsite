@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="head1"><h1> Marine Units and formulas</h1></div>
+    <div id="linkpage">
+    <div1 ><a id="btn1" href="formula.html">marine Formulas</a></div1><br>
+    <div2><a id="btn3" href="convertion.html">Convertion</a></div2><br>
+    <div1 ><a id="btn1" href="imdg.html">IMDG segregation table</a></div1><br></div>
+    <h2 id="hdW">FIND FRESH WATER ALLOWANCE</h2>
+    <div id="calculateFwa">
+        <label for="W" id="input">DISPLACEMENT(t)</label>
+        <input type="text" id="W"></input>&nbsp;
+        <label for="TPC" id="input">TPC(cm)</label>
+        <input type="text" id="TPC"></input>&nbsp;<br>
+        <button id="btn4" onclick="findFwa()" >FIND FWA</button><br><br>
+        <div id="content2"></div></div>
+
+     <h2 id="hdDWA">FIND DOCK WATER ALLOWANCE</h2>
+    <div id="calculateDwa">
+    <label for="DWA" id="input">DW DENSITY</label>
+    <input type="text" id="DWA"></input>&nbsp;
+    <label for="FWA" id="input">FWA(mm)</label>
+    <input type="text" id="FWA"></input>&nbsp;<br>
+    <button id="btn2" onclick="change()" >FIND DWA</button><br><br>
+    <div id="content1"></div></div>
+     
+    <h2 id="hdInterpolation">INTERPOLATION</h2>
+    <div id="interpolate">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="tb1" id="input">column 1</label>
+        <input type="text" id="tb1"></input>&nbsp; 
+        <label for="tb2" id="input">find for</label>
+        <input type="text" id="tb2"></input>&nbsp;
+        <label for="tb3" id="input">column 2</label>
+        <input type="text" id="tb3"></input>&nbsp;<br><br>&nbsp;
+        <label for="tb8" id="input">Row  1</label>
+        <input type="text" id="tb8"></input>
+        <label for="tb4" id="input">&nbsp;value 1&nbsp;&nbsp;</label>
+        <input type="text" id="tb4"></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button id="btn5" onclick="interpolate()" >Interpolated Value</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="tb5" id="input">value 2&nbsp;</label>
+        
+        <input type="text" id="tb5"></input>&nbsp;&nbsp;
+        <div id="content3"></div><br>&nbsp;
+        <label for="tb9" id="input">Row 2</label>
+        <input type="text" id="tb9"></input>&nbsp;<br>&nbsp;
+        <div id="content4"></div>&nbsp;
+        <label for="tb10" id="input">Row  3</label>
+        <input type="text" id="tb10"></input>&nbsp;
+        <label for="tb6" id="input">value 3&nbsp;&nbsp;</label>
+        <input type="text" id="tb6"></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        <label for="tb7" id="input">value 4</label>
+        <input type="text" id="tb7"></input>&nbsp;
+        
+        <div id="content5"></div>
+       
+        </div>&nbsp;
+       
+    
+</body>
+<link rel="stylesheet" href="style.css">
+<script src="app.js"></script>
+
+</html>

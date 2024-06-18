@@ -1,0 +1,54 @@
+#head1
+{
+    color: navy;
+    background-color: aquamarine;
+    text-align: center;
+}
+
+#linkpage{
+    display: flex;
+    flex-direction: column;
+    
+   
+    justify-content: flex-end;
+    width: 205px;
+    background-color: rgb(206, 236, 209);
+    font-size: larger; color: aquamarine;}
+ 
+    #content1,#content2,#content3{
+        color: rgb(245, 243, 243);
+        margin-left: 20px;
+        font-weight: bolder;
+
+  }  
+  #input{
+    color: white;
+    margin-left: 20px;
+    font-weight: bolder;
+
+} 
+#calculateDwa,#calculateFwa,#interpolate{
+    margin-top: 50px;
+    background-color: blueviolet;
+   
+}
+#btn2,#btn4{
+    margin-left: 20px;
+} 
+#hdInterpolation,#hdW,#hdDWA{
+    color: white;
+    margin-left: 200px;
+    /* text-align: center; */
+    text-decoration: underline;
+    font-weight: bolder;
+    text-decoration-color: orange;
+    
+}
+
+
+
+
+body{
+    background-image: url(ship-generic.png);
+    background-size: cover;
+}
