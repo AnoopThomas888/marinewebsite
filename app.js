@@ -47,6 +47,6 @@ function interpolate(){
     console.log(tb10-a);
 
     c=((tb9-tb8)*(b-a))/(tb10-tb8)+a;
-    interpolateResult3.innerHTML= c ;
+    interpolateResult3.innerHTML= "final value "+ c ;
 
 }
